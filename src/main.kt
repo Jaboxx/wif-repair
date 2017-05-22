@@ -155,7 +155,7 @@ class KeyTester {
                     "and checking the balance on the addresses.\n\n");*/
 
         println(if (ValidateWIF(knownPKey)) "The key you input appears to be already valid." else "The key you input is invalid.")
-        println("Rebuilt checksum: " + RebuildWIF(knownPKey))
+        handleSolution(RebuildWIF(knownPKey))
         //println(knownPKey)
         startMillis = System.currentTimeMillis()
         println("Testing substitutions...")
