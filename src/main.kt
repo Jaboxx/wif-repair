@@ -49,7 +49,7 @@ fun main(args: Array<String>) {
         "") as String
 */
     monThread.start()
-    kt.tryKeys(knownPKey) { s -> kt.printIfNotSeen(s) }
+    kt.tryKeys(knownPKey, { s -> kt.printIfNotSeen(s) }, {s -> println(s)})
 
 
 }
@@ -141,85 +141,90 @@ class KeyTester {
     private fun baToString(data: ByteArray) = Arrays.toString(data.map { b -> (b.toInt() and 0xFF).toString(16) }.toTypedArray())
 
 
-    fun tryKeys(knownPKey: String, handleSolution: (String) -> Unit) {
-        println("Note: This program will attempt to generate similar private keys to try to undo any typos.\nIt may generate multiple results, " +
-                "some of which may have a zero balance.\nPlease try all of the resulting private keys by pasting them into bitaddress.org,\n" +
-                "and checking the balance on the addresses.\n\n")
-        /*JOptionPane.showMessageDialog(null,
+    fun tryKeys(knownPKey: String, handleSolution: (String) -> Unit, pushProgress: (String) -> Unit) {
+        try {
+            println("Note: This program will attempt to generate similar private keys to try to undo any typos.\nIt may generate multiple results, " +
+                    "some of which may have a zero balance.\nPlease try all of the resulting private keys by pasting them into bitaddress.org,\n" +
+                    "and checking the balance on the addresses.\n\n")
+            /*JOptionPane.showMessageDialog(null,
             "Note: This program will attempt to generate similar private keys to try to undo any typos.\nIt may generate multiple results, " +
                     "some of which may have a zero balance.\nPlease try all of the resulting private keys by pasting them into bitaddress.org,\n" +
                     "and checking the balance on the addresses.\n\n");*/
 
-        println(if (ValidateWIF(knownPKey)) "The key you input appears to be already valid." else "The key you input is invalid.")
-        handleSolution(RebuildWIF(knownPKey))
-        //println(knownPKey)
-        startMillis = System.currentTimeMillis()
-        println("Testing substitutions...")
-        var subs1 = varySubstitutions(knownPKey)
-        println("${subs1.size} substitutions generated.")
-        for (s in subs1.filter { s -> ValidateWIF(s) }) {
-            handleSolution(s)
-        }
+            println(if (ValidateWIF(knownPKey)) "The key you input appears to be already valid." else "The key you input is invalid.")
+            handleSolution(RebuildWIF(knownPKey))
+            //println(knownPKey)
+            startMillis = System.currentTimeMillis()
+            pushProgress("Testing substitutions...")
+            var subs1 = varySubstitutions(knownPKey)
+            //println("${subs1.size} substitutions generated.")
+            for (s in subs1.filter { s -> ValidateWIF(s) }) {
+                handleSolution(s)
+            }
 
-        //printStats()
-        println("Testing transpositions...")
-        val transpositions = varyTranspositions(knownPKey)
-        println("${transpositions.size} transpositions generated.")
-        for (s in transpositions.filter { s -> ValidateWIF(s) }) {
-            handleSolution(s)
-        }
-        //printStats()
-        println("Testing transpositions of substitutions...")
-        for (s in subs1.flatMap { s -> varyTranspositions(s) }.filter { s -> ValidateWIF(s) }) {
-            handleSolution(s)
-        }
-        //printStats()
-        println("Testing consistently misread characters...")
-        val vsa = varySubAll(knownPKey)
+            //printStats()
+            pushProgress("Testing transpositions...")
+            val transpositions = varyTranspositions(knownPKey)
+            //println("${transpositions.size} transpositions generated.")
+            for (s in transpositions.filter { s -> ValidateWIF(s) }) {
+                handleSolution(s)
+            }
+            //printStats()
+            pushProgress("Testing transpositions of substitutions...")
+            for (s in subs1.flatMap { s -> varyTranspositions(s) }.filter { s -> ValidateWIF(s) }) {
+                handleSolution(s)
+            }
+            //printStats()
+            pushProgress("Testing consistently misread characters...")
+            val vsa = varySubAll(knownPKey)
 
-        println("${vsa.size} bulk substitutions generated.")
-        for (s in vsa.stream().filter { s -> ValidateWIF(s) }) {
-            handleSolution(s)
+            //println("${vsa.size} bulk substitutions generated.")
+            for (s in vsa.stream().filter { s -> ValidateWIF(s) }) {
+                handleSolution(s)
+            }
+            //printStats()
+            pushProgress("Testing consistently misread characters with transposition...")
+            for (s in vsa.stream().flatMap { s -> varyTranspositions(s).stream() }.filter { s -> ValidateWIF(s) }) {
+                handleSolution(s)
+            }
+            //printStats()
+            pushProgress("Testing double and triple transpositions...")
+            for (s in transpositions.stream().flatMap { s -> varyTranspositions(s).stream() }.filter { s -> ValidateWIF(s) }) {
+                handleSolution(s)
+            }
+            //printStats()
+            for (s in transpositions.stream().flatMap { s -> varyTranspositions(s).stream() }.flatMap { s -> varyTranspositions(s).stream() }.filter { s -> ValidateWIF(s) }) {
+                handleSolution(s)
+            }
+            //printStats()
+            println("Warning: The following steps will take a while, due to a large search space.")
+            pushProgress("Testing two substitutions...")
+            for (s in subs1.stream().flatMap { s -> varySubstitutions(s).stream() }.filter { s -> ValidateWIF(s) }) {
+                handleSolution(s)
+            }
+            pushProgress("Testing substitution and two transpositions...")
+            for (s in subs1.stream().flatMap { s -> varyTranspositions(s).stream() }.flatMap { s -> varyTranspositions(s).stream() }.filter { s -> ValidateWIF(s) }) {
+                handleSolution(s)
+            }
+            pushProgress("Testing bulk substitution followed by two transpositions...")
+            ///for (s in vsa.stream().flatMap { s -> varyTranspositions(s).stream() }.flatMap { s -> varyTranspositions(s).stream() }.filter { s -> ValidateWIF(s) }) {
+            //    printIfNotSeen(s)
+            //}
+            //printStats()
+            pushProgress("Testing consistently misread characters with substitution...")
+            for (s in vsa.stream().flatMap { s -> varySubstitutions(s).stream() }.filter { s -> ValidateWIF(s) }) {
+                handleSolution(s)
+            }
+            //printStats()
+            pushProgress("Testing consistently misread characters with substitution and transposition...")
+            for (s in vsa.flatMap { s -> varySubstitutions(s) }.flatMap { s -> varyTranspositions(s) }.filter { s -> ValidateWIF(s) }) {
+                handleSolution(s)
+            }
+            pushProgress("Done.")
+            //printStats()
+        } catch (e : Exception) {
+            pushProgress("Finished with error: ${e.javaClass.name}")
         }
-        //printStats()
-        println("Testing consistently misread characters with transposition...")
-        for (s in vsa.stream().flatMap { s -> varyTranspositions(s).stream() }.filter { s -> ValidateWIF(s) }) {
-            handleSolution(s)
-        }
-        //printStats()
-        println("Testing double and triple transpositions...")
-        for (s in transpositions.stream().flatMap { s -> varyTranspositions(s).stream() }.filter { s -> ValidateWIF(s) }) {
-            handleSolution(s)
-        }
-        //printStats()
-        for (s in transpositions.stream().flatMap { s -> varyTranspositions(s).stream() }.flatMap { s -> varyTranspositions(s).stream() }.filter { s -> ValidateWIF(s) }) {
-            handleSolution(s)
-        }
-        //printStats()
-        println("Warning: The following steps will take a while, due to a large search space.")
-        println("Testing two substitutions...")
-        for (s in subs1.stream().flatMap { s -> varySubstitutions(s).stream() }.filter { s -> ValidateWIF(s) }) {
-            handleSolution(s)
-        }
-        println("Testing substitution and two transpositions...")
-        for (s in subs1.stream().flatMap { s -> varyTranspositions(s).stream() }.flatMap { s -> varyTranspositions(s).stream() }.filter { s -> ValidateWIF(s) }) {
-            handleSolution(s)
-        }
-        println("Testing bulk substitution followed by two transpositions...")
-        ///for (s in vsa.stream().flatMap { s -> varyTranspositions(s).stream() }.flatMap { s -> varyTranspositions(s).stream() }.filter { s -> ValidateWIF(s) }) {
-        //    printIfNotSeen(s)
-        //}
-        //printStats()
-        println("Testing consistently misread characters with substitution...")
-        for (s in vsa.stream().flatMap { s -> varySubstitutions(s).stream() }.filter { s -> ValidateWIF(s) }) {
-            handleSolution(s)
-        }
-        //printStats()
-        println("Testing consistently misread characters with substitution and transposition...")
-        for (s in vsa.flatMap { s -> varySubstitutions(s) }.flatMap { s -> varyTranspositions(s) }.filter { s -> ValidateWIF(s) }) {
-            handleSolution(s)
-        }
-        //printStats()
     }
 
     val seenWIFs = HashSet<String>()

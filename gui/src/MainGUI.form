@@ -7,13 +7,15 @@
     <properties>
       <minimumSize width="313" height="320"/>
     </properties>
-    <border type="none"/>
+    <border type="empty">
+      <size top="8" left="8" bottom="8" right="8"/>
+    </border>
     <children>
       <scrollpane id="a516d">
         <constraints border-constraint="Center"/>
         <properties/>
         <border type="empty">
-          <size top="8" left="8" bottom="8" right="8"/>
+          <size top="0" left="0" bottom="0" right="0"/>
         </border>
         <children>
           <component id="f1f0c" class="javax.swing.JTextArea" binding="result">
@@ -25,11 +27,13 @@
           </component>
         </children>
       </scrollpane>
-      <grid id="e437d" binding="topBar" layout-manager="GridLayoutManager" row-count="1" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="e437d" binding="topBar" layout-manager="GridLayoutManager" row-count="1" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints border-constraint="North"/>
         <properties/>
-        <border type="none"/>
+        <border type="empty">
+          <size top="8" left="8" bottom="8" right="8"/>
+        </border>
         <children>
           <component id="cb1bf" class="javax.swing.JTextField" binding="key">
             <constraints>
@@ -64,12 +68,33 @@
               <text value="Private Key:"/>
             </properties>
           </component>
+          <component id="383fb" class="javax.swing.JButton" binding="btnAbout">
+            <constraints>
+              <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="About/Donate"/>
+            </properties>
+          </component>
         </children>
       </grid>
-      <component id="75388" class="javax.swing.JProgressBar" binding="progressBar1" default-binding="true">
+      <grid id="db4d9" layout-manager="BorderLayout" hgap="0" vgap="0">
         <constraints border-constraint="South"/>
         <properties/>
-      </component>
+        <border type="none"/>
+        <children>
+          <component id="75388" class="javax.swing.JProgressBar" binding="progressBar1" default-binding="true">
+            <constraints border-constraint="North"/>
+            <properties/>
+          </component>
+          <component id="5c6a1" class="javax.swing.JTextField" binding="statusBar">
+            <constraints border-constraint="South"/>
+            <properties>
+              <editable value="false"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
     </children>
   </grid>
 </form>
