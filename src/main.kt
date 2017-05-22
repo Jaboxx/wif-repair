@@ -4,8 +4,6 @@ import java.util.Arrays
 import java.security.MessageDigest
 
 
-
-
 /**
  * Created by hexafraction on 5/20/17.
  */
@@ -62,8 +60,6 @@ class KeyTester {
     @Volatile var decodes = 0L
     @Volatile var validDecodes = 0L
     @Volatile var startMillis = 0L
-
-
 
 
     fun printStats() {
@@ -141,8 +137,6 @@ class KeyTester {
 
     // Debug use only
     private fun baToString(data: ByteArray) = Arrays.toString(data.map { b -> (b.toInt() and 0xFF).toString(16) }.toTypedArray())
-
-
 
 
     fun tryKeys(knownPKey: String, handleSolution: (String) -> Unit) {
