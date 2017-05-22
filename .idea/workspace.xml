@@ -7,6 +7,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7ee51e3c-a725-4cd9-99c1-5f8ae29adfa7" name="Default" comment="">
+      <change type="MOVED" beforePath="$PROJECT_DIR$/KeyTypos.jar" afterPath="$PROJECT_DIR$/WIFRepair-GUI.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/KeyTypos/KeyTester$tryKeys$10.class" afterPath="$PROJECT_DIR$/out/production/KeyTypos/KeyTester$tryKeys$10.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/KeyTypos/KeyTester$tryKeys$11.class" afterPath="$PROJECT_DIR$/out/production/KeyTypos/KeyTester$tryKeys$11.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/KeyTypos/KeyTester$tryKeys$12.class" afterPath="$PROJECT_DIR$/out/production/KeyTypos/KeyTester$tryKeys$12.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/KeyTypos/KeyTester$tryKeys$13.class" afterPath="$PROJECT_DIR$/out/production/KeyTypos/KeyTester$tryKeys$13.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/KeyTypos/KeyTester$tryKeys$14.class" afterPath="$PROJECT_DIR$/out/production/KeyTypos/KeyTester$tryKeys$14.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/KeyTypos/KeyTester$tryKeys$15.class" afterPath="$PROJECT_DIR$/out/production/KeyTypos/KeyTester$tryKeys$15.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/KeyTypos/KeyTester$tryKeys$16.class" afterPath="$PROJECT_DIR$/out/production/KeyTypos/KeyTester$tryKeys$16.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/KeyTypos/KeyTester$tryKeys$17.class" afterPath="$PROJECT_DIR$/out/production/KeyTypos/KeyTester$tryKeys$17.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/KeyTypos/KeyTester$tryKeys$18.class" afterPath="$PROJECT_DIR$/out/production/KeyTypos/KeyTester$tryKeys$18.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/KeyTypos/KeyTester$tryKeys$19.class" afterPath="$PROJECT_DIR$/out/production/KeyTypos/KeyTester$tryKeys$19.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/KeyTypos/KeyTester$tryKeys$5.class" afterPath="$PROJECT_DIR$/out/production/KeyTypos/KeyTester$tryKeys$5.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/KeyTypos/KeyTester$tryKeys$6.class" afterPath="$PROJECT_DIR$/out/production/KeyTypos/KeyTester$tryKeys$6.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/KeyTypos/KeyTester$tryKeys$7.class" afterPath="$PROJECT_DIR$/out/production/KeyTypos/KeyTester$tryKeys$7.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/KeyTypos/KeyTester$tryKeys$8.class" afterPath="$PROJECT_DIR$/out/production/KeyTypos/KeyTester$tryKeys$8.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/KeyTypos/KeyTester$tryKeys$9.class" afterPath="$PROJECT_DIR$/out/production/KeyTypos/KeyTester$tryKeys$9.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/KeyTypos/KeyTester.class" afterPath="$PROJECT_DIR$/out/production/KeyTypos/KeyTester.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/KeyTypos/MainKt$main$1.class" afterPath="$PROJECT_DIR$/out/production/KeyTypos/MainKt$main$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/KeyTypos/MainKt$main$monThread$1.class" afterPath="$PROJECT_DIR$/out/production/KeyTypos/MainKt$main$monThread$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/KeyTypos/MainKt.class" afterPath="$PROJECT_DIR$/out/production/KeyTypos/MainKt.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main.kt" afterPath="$PROJECT_DIR$/src/main.kt" />
     </list>
@@ -21,11 +41,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.kt" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.kt" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="438">
-              <caret line="279" column="1" lean-forward="true" selection-start-line="279" selection-start-column="1" selection-end-line="279" selection-end-column="1" />
+            <state relative-caret-position="-340">
+              <caret line="97" column="0" lean-forward="true" selection-start-line="97" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
               <folding>
                 <element signature="e#0#132#0" expanded="true" />
               </folding>
@@ -40,11 +60,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JavaMain.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="JavaMain.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/JavaMain.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="380">
-              <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+              <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -677,12 +697,12 @@
       <workItem from="1495334491395" duration="2480000" />
       <workItem from="1495381766871" duration="9298000" />
       <workItem from="1495408929233" duration="5860000" />
-      <workItem from="1495415472166" duration="3304000" />
+      <workItem from="1495415472166" duration="4705000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20942000" />
+    <option name="totallyTimeSpent" value="22343000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="-11" width="1922" height="1092" extended-state="6" />
@@ -728,7 +748,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="12" />
+      <option name="time" value="15" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -801,13 +821,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
           <caret line="24" column="16" lean-forward="false" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar!/java/util/Arrays.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="1303" column="25" lean-forward="false" selection-start-line="1303" selection-start-column="25" selection-end-line="1303" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -993,21 +1006,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MainGUI.form">
-      <provider selected="true" editor-type-id="ui-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="438">
-          <caret line="279" column="1" lean-forward="true" selection-start-line="279" selection-start-column="1" selection-end-line="279" selection-end-column="1" />
-          <folding>
-            <element signature="e#0#132#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/MainGUI.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="477">
@@ -1021,8 +1019,31 @@
     <entry file="file://$PROJECT_DIR$/src/JavaMain.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="380">
-          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MainGUI.form">
+      <provider selected="true" editor-type-id="ui-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar!/java/util/Arrays.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="1303" column="25" lean-forward="false" selection-start-line="1303" selection-start-column="25" selection-end-line="1303" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-340">
+          <caret line="97" column="0" lean-forward="true" selection-start-line="97" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#132#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

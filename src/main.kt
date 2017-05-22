@@ -77,7 +77,8 @@ class KeyTester {
             bi *= fiftyEight
             bi += BigInteger.valueOf(p.toLong())
         }
-        return Arrays.copyOfRange(bi.toByteArray(), 1, 38)
+        val ba = bi.toByteArray()
+        return Arrays.copyOfRange(ba, 1, ba.size)
     }
 
     private fun EncodeBase58(input: ByteArray): String {
@@ -94,11 +95,12 @@ class KeyTester {
         decodes++
         val decoded = DecodeBase58(wif) ?: return false
         //println(baToString(decoded))
-        val data = Arrays.copyOfRange(decoded, 0, 33)
+
+        val decSize = decoded.size
+        val data = Arrays.copyOfRange(decoded, 0, decSize-4)
 
         //println(baToString(data))
         val hash = Sha256(data, 2)!!
-        val decSize = decoded.size
         if (hash[0] == decoded[decSize - 4]
                 && hash[1] == decoded[decSize - 3]
                 && hash[2] == decoded[decSize - 2]
@@ -115,7 +117,7 @@ class KeyTester {
 
     fun RebuildWIF(wif: String): String {
         val decoded = DecodeBase58(wif) ?: return ""
-        val data = Arrays.copyOfRange(decoded, 0, 33)
+        val data = Arrays.copyOfRange(decoded, 0, decoded.size-4)
         val hash = Sha256(data, 2)
         return EncodeBase58((nullByte + data.toList() + Arrays.copyOfRange(hash, 0, 4).toList()).toByteArray())
     }
