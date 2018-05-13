@@ -16,10 +16,10 @@ public class MainGUI {
     private JPanel topBar;
     private JTextField key;
     private JButton btStart;
-    private JButton btStop;
     private JProgressBar progressBar1;
     private JTextField statusBar;
     private JButton btnAbout;
+    private JButton instructionsButton;
     private SwingWorker<Void, String> worker;
 
     public MainGUI() {
@@ -28,7 +28,7 @@ public class MainGUI {
 
             @Override
             public void mouseClicked(final MouseEvent event) {
-                btStop.setEnabled(true);
+
                 btStart.setEnabled(false);
                 key.setEditable(false);
                 worker = new SwingWorker<Void, String>() {
@@ -53,12 +53,12 @@ public class MainGUI {
                         th.start();
                         progressBar1.setIndeterminate(true);
                         try {
+                            th.interrupt();
                             th.join(); // interrupt to stop
                             progressBar1.setIndeterminate(false);
                         } catch (InterruptedException e) {
-                            th.stop(); // deprecated but quick workaround.
+                            th.stop();
                         }
-                        btStop.setEnabled(false);
                         btStart.setEnabled(true);
                         key.setEditable(true);
                         return null;
@@ -75,7 +75,7 @@ public class MainGUI {
                 worker.execute();
             }
         });
-        btStop.addMouseListener(new MouseAdapter() {
+/*        btStop.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(final MouseEvent event) {
                 btStop.setEnabled(false);
@@ -86,11 +86,17 @@ public class MainGUI {
                 statusBar.setText("Operation cancelled.");
                 progressBar1.setIndeterminate(false);
             }
-        });
+        });*/
         btnAbout.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(final MouseEvent event) {
                 spawnAbout();
+            }
+        });
+        instructionsButton.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                spawnHelp();
             }
         });
     }
@@ -112,6 +118,26 @@ public class MainGUI {
         frame.pack();
 
         frame.setSize(320, 240);
+        frame.setVisible(true);
+    }
+
+    void spawnHelp() {
+        JDialog frame = new JDialog(new JFrame("WIF typo repair - Help"), Dialog.ModalityType.APPLICATION_MODAL);
+        frame.setTitle("WIF typo repair - Help");
+        HelpForm form = new HelpForm();
+        frame.setContentPane(form.contentPane);
+        frame.setResizable(false);
+        form.btnClose.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(final MouseEvent event) {
+                frame.setVisible(false);
+                frame.dispose();
+            }
+        });
+        //frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.pack();
+
+        frame.setSize(480, 320);
         frame.setVisible(true);
     }
 

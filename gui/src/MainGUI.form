@@ -6,6 +6,7 @@
     </constraints>
     <properties>
       <minimumSize width="313" height="320"/>
+      <preferredSize width="801" height="280"/>
     </properties>
     <border type="empty">
       <size top="8" left="8" bottom="8" right="8"/>
@@ -51,15 +52,6 @@
               <text value="Start"/>
             </properties>
           </component>
-          <component id="33dd1" class="javax.swing.JButton" binding="btStop">
-            <constraints>
-              <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <enabled value="false"/>
-              <text value="Stop"/>
-            </properties>
-          </component>
           <component id="970bd" class="javax.swing.JLabel">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
@@ -74,6 +66,14 @@
             </constraints>
             <properties>
               <text value="About/Donate"/>
+            </properties>
+          </component>
+          <component id="f61e6" class="javax.swing.JButton" binding="instructionsButton" default-binding="true">
+            <constraints>
+              <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Instructions"/>
             </properties>
           </component>
         </children>
